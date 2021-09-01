@@ -1,0 +1,5 @@
+.header{
+    background: linear-gradient( to bottom,rgba(0,0,0,0.5),rgba(0,0,0,0.5),rgba(0,0,0,0.5) ), url('https://assets.nflxext.com/ffe/siteui/vlv3/5a27cb25-33a9-4bcc-b441-95fefabcbd37/6bdbf132-dd7b-4d42-8f84-9139f9c4eaac/VN-en-20210823-popsignuptwoweeks-perspective_alpha_website_medium.jpg');
+    width: 100%;
+    height: 80vh;
+}
