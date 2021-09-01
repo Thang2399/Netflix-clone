@@ -2,8 +2,6 @@ import React from 'react';
 // React router dom
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-// custom hook
-import useAuthListener from './hooks/use-auth-listener';
 // Pages
 import HomePage from './pages/home';
 import BrowsePage from './pages/browse';
@@ -12,20 +10,15 @@ import SignUpPage from './pages/signup';
 import ErrorPage from './pages/error';
 // Routes
 import * as ROUTES from './constants/routes';
-// import { IsUserRedirect, ProtectedRoutes } from './helper/routes';
 
 const App = () => {
-    const { user } = useAuthListener();
-    console.log('====================================');
-    console.log(user);
-    console.log('====================================');
+    console.log(789);
 
     return (
         <div>
             <Router>
                 <Switch>
                     <Route
-                        user={user}
                         exact
                         loggedInPath={ROUTES.BROWSE}
                         path={ROUTES.SIGN_IN}
@@ -34,7 +27,6 @@ const App = () => {
                     </Route>
 
                     <Route
-                        user={user}
                         exact
                         loggedInPath={ROUTES.BROWSE}
                         path={ROUTES.SIGN_UP}
@@ -43,7 +35,6 @@ const App = () => {
                     </Route>
 
                     <Route
-                        user={user}
                         exact
                         path={ROUTES.BROWSE}
                     >
@@ -51,7 +42,6 @@ const App = () => {
                     </Route>
 
                     <Route
-                        user={user}
                         exact
                         loggedInPath={ROUTES.BROWSE}
                         path={ROUTES.HOME}
