@@ -18,7 +18,7 @@ const SignUpForm = () => (
                 name='text'
                 id='text'
                 placeholder='Enter your email address'
-                className='w-2/3 h-16 p-2'
+                className='w-2/3 h-16 p-2 text-black text-base'
             />
             <Link to={ROUTES.SIGN_UP} className='w-1/3 h-16 p-2 bg-red-600 hover:bg-red-800 text-2xl font-medium flex flex-row justify-center items-stretch'>
                 <button type='submit' className='tracking-wide flex flex-row justify-center items-center'>

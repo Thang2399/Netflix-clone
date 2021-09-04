@@ -1,6 +1,6 @@
 import React from 'react';
 // React router dom
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
 // Pages
 import HomePage from './pages/home';
@@ -8,16 +8,32 @@ import BrowsePage from './pages/browse';
 import SignInPage from './pages/signin';
 import SignUpPage from './pages/signup';
 import ErrorPage from './pages/error';
+import WatchPage from './pages/watch';
 // Routes
 import * as ROUTES from './constants/routes';
 
 const App = () => {
-    console.log(789);
+    const user = true;
 
     return (
         <div>
             <Router>
                 <Switch>
+                    <Route
+                        exact
+                        path={ROUTES.BROWSE}
+                    >
+                        {user ? <BrowsePage /> : <Redirect to={ROUTES.HOME} /> }
+                    </Route>
+
+                    <Route
+                        exact
+                        loggedInPath={ROUTES.BROWSE}
+                        path={ROUTES.HOME}
+                    >
+                        {!user ? <HomePage /> : <Redirect to={ROUTES.BROWSE} />}
+                    </Route>
+
                     <Route
                         exact
                         loggedInPath={ROUTES.BROWSE}
@@ -34,20 +50,27 @@ const App = () => {
                         <SignUpPage />
                     </Route>
 
-                    <Route
-                        exact
-                        path={ROUTES.BROWSE}
-                    >
-                        <BrowsePage />
-                    </Route>
+                    {user && (
+                        <>
+                            <Route
+                                path={ROUTES.MOVIES}
+                            >
+                                <BrowsePage type='movies' />
+                            </Route>
 
-                    <Route
-                        exact
-                        loggedInPath={ROUTES.BROWSE}
-                        path={ROUTES.HOME}
-                    >
-                        <HomePage />
-                    </Route>
+                            <Route
+                                path={ROUTES.SHOWS}
+                            >
+                                <BrowsePage type='shows' />
+                            </Route>
+
+                            <Route
+                                path={ROUTES.WATCH}
+                            >
+                                <WatchPage />
+                            </Route>
+                        </>
+                    )}
 
                     <Route path='*'>
                         <ErrorPage />

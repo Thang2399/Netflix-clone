@@ -1,15 +1,33 @@
 @import '../../assets/styles/theme/variables';
 
+.navbar{
+  max-width: 100%;
+  width: 100%;
+  padding: 0.75rem 4rem;
+  background: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.3) 50%);
+
+  &.scrolled{
+    background-color: #1f232b;
+  }
+}
+
 .profile {
         .options {
           display: none;
           background-color: var(--main-color);
           border-radius: 5px;
+
+        }
+        .icon{cursor: pointer; transition: 0.1s;}
+
+        .icon:hover{
+          transform: rotateX(180deg);
         }
 
         span {
-          padding: 10px;
+          padding: 10px 20px;
           cursor: pointer;
+          width: 100px;
         }
 
         &:hover {
