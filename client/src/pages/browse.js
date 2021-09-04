@@ -30,14 +30,17 @@ const BrowsePage = ({type}) => {
     }, [genre, type]);
 
     return (
-        <div className='relative z-0'>
+        <div className='relative z-0 overflow-hidden'>
             <div className='fixed top-0 left-0 w-full z-10'>
                 <NavBar />
             </div>
             <Feature type={type} />
-            {lists.map((list) => (
-                <Lists key={list._id} list={list} />
-            ))}
+            <div className='relative'>
+                {lists.map((list) => (
+                    <Lists key={list._id} list={list} />
+                ))}
+            </div>
+
             <Footer />
         </div>
     );

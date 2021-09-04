@@ -1,0 +1,12 @@
+@import '../../../../assets/styles/theme/variables';
+
+.sub-content{
+    position: absolute;
+    background-color: rgba(175, 164, 164, 0.4);
+    top: 0;
+    left: 0;
+    z-index: 60;
+
+    width: 100vw;
+    height: 500vh;
+}

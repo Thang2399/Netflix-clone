@@ -1,7 +1,9 @@
 /* eslint-disable max-len */
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+// React player
+import ReactPlayer from 'react-player';
 // React router dom
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 // Icon
 import { BiArrowBack } from 'react-icons/bi';
 
@@ -9,7 +11,11 @@ import { BiArrowBack } from 'react-icons/bi';
 import * as ROUTES from '../constants/routes';
 
 const Watch = () => {
-    console.log('Watch');
+    const location = useLocation();
+    console.log('Location: ', location);
+
+    const { movie } = location;
+
     const [showText, setshowText] = useState(false);
     function handleShowText() {
         setshowText(true);
@@ -26,9 +32,10 @@ const Watch = () => {
                     {showText && <span>Back to Browse</span>}
                 </Link>
             </div>
-            <video controls autoPlay progress className='w-full h-full object-contain '>
-                <track src='https://vod-progressive.akamaized.net/exp=1624452918~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F2400%2F14%2F362003850%2F1486625955.mp4~hmac=d6f829e7bb83f1ee6a28047d00aa2c1083c8fe5036c8084a4adf1c3903085856/vimeo-prod-skyfire-std-us/01/2400/14/362003850/1486625955.mp4' kind='captions' />
-            </video>
+            <div className='w-screen h-screen'>
+                <ReactPlayer url={movie.video} width='100%' height='100%' playing='true' loop='true' control='true' />
+            </div>
+
         </div>
     );
 };

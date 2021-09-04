@@ -16,7 +16,7 @@ const title = 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/846a908
 const Feature = ({type}) => {
     console.log('Feature');
     return (
-        <div className='relative'>
+        <div className='relative w-screen'>
             {type && (
                 <div className='absolute top-20 left-20 flex items-center'>
                     <span className='text-white text-5xl font-semibold mr-4'>
