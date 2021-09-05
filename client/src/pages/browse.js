@@ -13,13 +13,16 @@ import Footer from '../components/footer/footer';
 
 const BrowsePage = ({type}) => {
     const [lists, setLists] = useState([]);
+    console.log('====================================');
+    console.log('Lists', lists);
+    console.log('====================================');
     // eslint-disable-next-line no-unused-vars
     const [genre, setGenres] = useState(null);
 
     useEffect(() => {
         const getRandomLists = async () => {
             try {
-                const res = await axios.get(`lists${type ? '?type=' + type : ''}${genre ? '?genre=' + genre : ''}`,
+                const res = await axios.get(`lists${type ? '?type=' + type : ''}${genre ? '&genre=' + genre : ''}`,
                     { headers: {token: 'Hello eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMjg5OTQwYjEzOWRhMzdlYTE3NTc4MyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMDczMDgzOSwiZXhwIjoxNjMxMzM1NjM5fQ.8Vgz67zjx7sBH20TDXZlwgv_mvXyR9CiGVWKNzfczoQ'} });
                 setLists(res.data);
             } catch (error) {
@@ -34,7 +37,7 @@ const BrowsePage = ({type}) => {
             <div className='fixed top-0 left-0 w-full z-10'>
                 <NavBar />
             </div>
-            <Feature type={type} />
+            <Feature type={type} setGenres={setGenres} />
             <div className='relative'>
                 {lists.map((list) => (
                     <Lists key={list._id} list={list} />

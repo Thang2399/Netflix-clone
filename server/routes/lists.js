@@ -68,20 +68,20 @@ router.get( '/', async ( req, res ) => {
         if (typeQuery) {
             if (genreQuery) {
                 list = await List.aggregate([
-                    {$sample: {size: 10}},
+                    {$sample: {size: 13}},
                     {$match: {type: typeQuery, genre: genreQuery}}
                 ]);
             }
             else {
                 list = await List.aggregate([
-                    {$sample: {size: 10}},
+                    {$sample: {size: 13}},
                     {$match: {type: typeQuery}}
                 ]);
             }
         }
         // Home page
         else {
-            list = await List.aggregate([{ $sample: {size: 10}}]);
+            list = await List.aggregate([{ $sample: {size: 13}}]);
         }
         res.status(200).json(list);
     } catch (error) {
