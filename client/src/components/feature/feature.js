@@ -45,7 +45,7 @@ const Feature = ({type}) => {
             <div className='info absolute bottom-1/3 left-10'>
                 <img src={title} alt='title' className='h-2/5 w-1/2' />
                 <div className='text-white max-w-1/5 w-full mt-6 absolute left-10 flex'>
-                    <Link to={ROUTES.WATCH} className='mr-4'>
+                    <Link to={ROUTES.BROWSE} className='mr-4'>
                         <button
                             type='button'
                             className='bg-white w-36 p-3 flex justify-center items-center text-2xl text-black font-semibold rounded hover:bg-gray-300 '

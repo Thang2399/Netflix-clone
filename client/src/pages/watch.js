@@ -1,28 +1,44 @@
 /* eslint-disable max-len */
-import React, { useState } from 'react';
+import React, {useState, useEffect} from 'react';
 // React player
 import ReactPlayer from 'react-player';
 // React router dom
-import { Link, useLocation } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 // Icon
 import { BiArrowBack } from 'react-icons/bi';
+// axios
+import axios from 'axios';
 
 // ROUTES
 import * as ROUTES from '../constants/routes';
 
 const Watch = () => {
-    const location = useLocation();
-    console.log('Location: ', location);
+    const { _id } = useParams();
 
-    const { movie } = location;
+    const [movie, setMovie] = useState({});
 
-    const [showText, setshowText] = useState(false);
+    const [showText, setShowText] = useState(false);
     function handleShowText() {
-        setshowText(true);
+        setShowText(true);
     }
     function handleHideText() {
-        setshowText(false);
+        setShowText(false);
     }
+
+    useEffect(() => {
+        const getMovies = async () => {
+            try {
+                const res = await axios.get(`/movies/find/${_id}`,
+                    { headers: {token: 'Hello eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMjg5OTQwYjEzOWRhMzdlYTE3NTc4MyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMDczMDgzOSwiZXhwIjoxNjMxMzM1NjM5fQ.8Vgz67zjx7sBH20TDXZlwgv_mvXyR9CiGVWKNzfczoQ'}}
+                );
+                // console.log('res', res.data);
+                setMovie(res.data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        getMovies();
+    }, [_id]);
 
     return (
         <div className='relative w-screen h-screen'>
@@ -33,9 +49,8 @@ const Watch = () => {
                 </Link>
             </div>
             <div className='w-screen h-screen'>
-                <ReactPlayer url={movie.video} width='100%' height='100%' playing='true' loop='true' control='true' />
+                <ReactPlayer url={movie.video} width='100%' height='100%' playing loop controls />
             </div>
-
         </div>
     );
 };

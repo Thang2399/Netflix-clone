@@ -65,7 +65,7 @@ const App = () => {
                             </Route>
 
                             <Route
-                                path={ROUTES.WATCH}
+                                path='/watch/:_id'
                             >
                                 <WatchPage />
                             </Route>
