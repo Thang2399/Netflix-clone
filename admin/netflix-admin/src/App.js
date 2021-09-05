@@ -1,11 +1,22 @@
-import React from 'react'
+import React from 'react';
+
+// Components
+import TopBar from './components/topbar/TopBar';
+import SideBar from './components/sidebar/SideBar';
+
+// Pages
+import Home from './pages/home/Home';
 
 const App = () => {
   return (
     <div>
-      <h1 className='text-3xl text-green-600'>App ADMIN</h1>
+      <TopBar />
+      <div className="container">
+        <SideBar />
+        <Home />
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default App;
