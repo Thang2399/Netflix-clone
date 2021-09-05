@@ -56,7 +56,7 @@ const SingleList = ({ item }) => {
 export default SingleList;
 
 const SubContent = ({ handleHideContent, movie}) => {
-    const {_id, image, title, description, genre, limit} = movie;
+    const {_id, image, title, description, genre, limit, duration} = movie;
 
     return (
         <div className='sub-content'>
@@ -111,7 +111,7 @@ const SubContent = ({ handleHideContent, movie}) => {
                                     {'+'}
                                 </span>
                                 <span className='mr-2'>
-                                    2 seasons
+                                    {duration}
                                 </span>
                                 <span className='mr-2 border-2 px-2 border-white  font-medium cursor-pointer'>
                                     HD

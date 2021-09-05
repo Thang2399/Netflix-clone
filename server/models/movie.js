@@ -14,6 +14,7 @@ const MovieSchema = new mongoose.Schema(
 		limit: { type: Number},
         genre: { type: Array },
         isSeries: { type: Boolean, default: false},
+		duration: {type: String}
 	},
 	{ timestamps: true },
 );
