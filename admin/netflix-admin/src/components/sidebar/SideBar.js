@@ -3,8 +3,7 @@ import {
 	LineStyle,
 	Timeline,
 	TrendingUp,
-	PermIdentity,
-	Storefront,
+    PermIdentity,
 	AttachMoney,
 	BarChart,
 	MailOutline,
@@ -13,6 +12,7 @@ import {
 	WorkOutline,
 	Report,
 } from '@material-ui/icons';
+import MovieIcon  from '@material-ui/icons/Movie';
 import { Link } from 'react-router-dom';
 
 import './SideBar.css';
@@ -49,10 +49,10 @@ const SideBar = () => {
                                 Users
                             </li>
                         </Link>
-                        <Link to='/products' className='link'>
+                        <Link to='/movies' className='link'>
                             <li className='sidebarListItem'>
-                                <Storefront className='sidebarIcon' />
-                                Products
+                                <MovieIcon className='sidebarIcon' />
+                                Movies
                             </li>
                         </Link>
                         <li className='sidebarListItem'>

@@ -12,12 +12,13 @@ import Home from './pages/home/Home';
 import UserList from './pages/User/userList/UserList';
 import SingleUser from './pages/User/singleUser/SingleUser';
 import NewUser from './pages/User/newUser/NewUser';
-import ProductList from './pages/Product/productList/ProductList';
-import SingleProduct from './pages/Product/SingleProduct/SingleProduct';
-import NewProduct from './pages/Product/newProduct/NewProduct';
+import MovieList from './pages/Movie/movieList/MovieList';
+import SingleMovie from './pages/Movie/singleMovie/SingleMovie';
+import NewMovie from './pages/Movie/newMovie/NewMovie';
 
 const App = () => {
-  return (
+
+return (
 		<Router>
 			<TopBar />
 			<div className='container'>
@@ -37,14 +38,14 @@ const App = () => {
 						<NewUser />
 					</Route>
 
-					<Route exact path='/products'>
-						<ProductList />
+					<Route exact path='/movies'>
+						<MovieList />
 					</Route>
-					<Route exact path='/product/:productId'>
-						<SingleProduct />
+					<Route exact path='/movie/:movieId'>
+						<SingleMovie />
 					</Route>
-					<Route exact path='/newProduct'>
-						<NewProduct />
+					<Route exact path='/newMovie'>
+						<NewMovie />
 					</Route>
 				</Switch>
 			</div>

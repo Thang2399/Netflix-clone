@@ -57,7 +57,7 @@ router.delete('/:id', verifyFunction, async (req, res) => {
 });
 
 // Get all list
-router.get( '/', async ( req, res ) => {
+router.get( '/', verifyFunction, async ( req, res ) => {
     const typeQuery = req.query.type;
     const genreQuery = req.query.genre;
     let list = [];
@@ -88,5 +88,6 @@ router.get( '/', async ( req, res ) => {
         res.status(500).json(error);
     }
 })
+
 
 module.exports = router;
